@@ -1,5 +1,12 @@
 import http from "http";
+
 const port = process.env.PORT || 3000;
-http.createServer((req, res) => {
+
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { "Content-Type": "text/plain" });
   res.end("Hello from Render VPS!");
-}).listen(port, () => console.log("Server started on port", port));
+});
+
+server.listen(port, "0.0.0.0", () => {
+  console.log("Server started on port", port);
+});
